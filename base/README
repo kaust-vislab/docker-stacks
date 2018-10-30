@@ -9,7 +9,7 @@ There are two optional build arguments that can be passed to the `docker build` 
 $ docker build -t $NAME:$TAG --build-arg username=$USERNAME --build-arg conda-environment=$CONDA_ENVIRONMENT ./
 ```
 
-Building the container without specifying the optional build arguments will result in a container whose unpriviledged user is called `al-khwarizmi` after the 12-th century Islamic scholar [Mohammad ibn Musa al-Khwarizmi](https://en.wikipedia.org/wiki/Muhammad_ibn_Musa_al-Khwarizmi) and the default conda environment.  
+Building the container without specifying the optional build arguments will result in a container whose unpriviledged user is called `al-khawarizmi` after the 12-th century Islamic scholar [Mohammad ibn Musa al-Khawarizmi](https://en.wikipedia.org/wiki/Muhammad_ibn_Musa_al-Khwarizmi) and the default conda environment.  
 
 ```bash
 $ docker build -t $NAME:TAG ./
