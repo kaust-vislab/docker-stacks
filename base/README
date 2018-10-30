@@ -1,0 +1,16 @@
+# base
+
+The KAUST Visualization Core Lab base Docker image pulls from the official miniconda image and adds an unpriviledged user.
+
+## Building the container
+There are two optional build arguments that can be passed to the `docker build` command: `username` and `conda-environment`. As you might expect the `username` build argument allows you to control the name of the unpriviledged user that is created inside the container; the `conda-environment` build argument allows you to specify a conda environment file which will be used to create a bespoke conda environment inside the container. Here is a complete example of the build syntax.
+
+```bash
+$ docker build -t $NAME:$TAG --build-arg username=$USERNAME --build-arg conda-environment=$CONDA_ENVIRONMENT ./
+```
+
+Building the container without specifying the optional build arguments will result in a container whose unpriviledged user is called `al-khwarizmi` after the 12-th century Islamic scholar [Mohammad ibn Musa al-Khwarizmi](https://en.wikipedia.org/wiki/Muhammad_ibn_Musa_al-Khwarizmi) and the default conda environment.  
+
+```bash
+$ docker build -t $NAME:TAG ./
+```
