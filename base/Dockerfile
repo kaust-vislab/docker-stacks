@@ -13,12 +13,11 @@ USER ${username}
 WORKDIR $HOME
 
 # build and activate the specified conda environment file (defaults to 'environment.yml')
-ARG conda_environment=environment.yml
-COPY ${conda_environment} .
-RUN conda env create --file ${conda_environment} && \
+ARG environment=environment.yml
+COPY ${environment} .
+RUN conda env create --file ${environment} && \
     echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
-    echo "conda activate $(head -1 ${conda_environment} | cut -d' ' -f2)" >> ~/.bashrc && \
+    echo "conda activate $(head -1 ${environment} | cut -d' ' -f2)" >> ~/.bashrc && \
     echo ". ~/.bashrc" >> ~/.profile
 
-COPY ./entrypoint.sh .
-ENTRYPOINT ["entrypoint.sh"]
+CMD ["./activate-environment.sh"]
