@@ -17,7 +17,4 @@ ARG environment=environment.yml
 COPY ${environment} .
 RUN conda env create --file ${environment} && \
     echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
-    echo "conda activate $(head -1 ${environment} | cut -d' ' -f2)" >> ~/.bashrc && \
-    echo ". ~/.bashrc" >> ~/.profile
-
-CMD ["./activate-environment.sh"]
+    echo "conda activate $(head -1 ${environment} | cut -d' ' -f2)" >> ~/.bashrc
